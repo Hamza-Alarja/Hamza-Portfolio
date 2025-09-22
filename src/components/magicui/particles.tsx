@@ -166,7 +166,6 @@ export const Particles: React.FC<ParticlesProps> = ({
       canvasRef.current.style.height = `${canvasSize.current.h}px`;
       context.current.scale(dpr, dpr);
 
-      // Clear existing particles and create new ones with exact quantity
       circles.current = [];
       for (let i = 0; i < quantity; i++) {
         const circle = circleParams();

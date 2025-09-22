@@ -28,6 +28,8 @@ export default function ContactFormModal() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false); // Added a `loading` state to manage the button's loading state
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -40,6 +42,7 @@ export default function ContactFormModal() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Start loading
 
     try {
       const response = await fetch("/api/send", {
@@ -73,6 +76,8 @@ export default function ContactFormModal() {
       }
     } catch (error) {
       console.error("Something went wrong" + error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -172,8 +177,8 @@ export default function ContactFormModal() {
               </Button>
             </DialogClose>
 
-            <Button type="submit" className="">
-              Send Message
+            <Button type="submit" className="" disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
             </Button>
           </div>
         </form>

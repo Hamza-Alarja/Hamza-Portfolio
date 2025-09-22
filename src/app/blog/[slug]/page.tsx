@@ -3,22 +3,24 @@ import ReactMarkdown from "react-markdown";
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-
-import { allBlogs } from "content-collections";
 
 import { ArrowLeftIcon } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+const mockBlog = [
+  {
+    title: "Sample Blog Title",
+    author: "Author Name",
+    publishedOn: "2024-06-01",
+    image: "/sample-image.jpg",
+    content: "This is the **content** of the blog post.",
+  },
+];
+
 export default function BlogPage() {
-  const pathname = usePathname();
-
-  const currentBlog = allBlogs.filter((blog) => {
-    return blog.slug === pathname.split("/").at(-1);
-  });
-
+  const currentBlog = mockBlog; 
   return (
     <article className="max-w-3xl mx-auto pb-5">
       <Link

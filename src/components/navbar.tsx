@@ -6,7 +6,6 @@ import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { ShinyButton } from "./magicui/shiny-button";
 import { ThemeToggle } from "./theme-toggle";
 import MobileNavigation from "./mobile-navbar";
-import { navbarLinks } from "@/constants";
 import { useModalStore } from "@/stores/modalStore";
 
 const Navbar = () => {

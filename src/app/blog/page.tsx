@@ -1,10 +1,7 @@
-import { allBlogs } from "content-collections";
-
 import { Categories } from "@/constants";
 
 import { Button } from "@/components/ui/button";
 import MobileCategories from "./_components/mobile-categories";
-import BlogCard from "./_components/blog-card";
 
 export default function page() {
   return (
@@ -20,12 +17,6 @@ export default function page() {
             </li>
           ))}
         </ul>
-      </section>
-
-      <section className="grid lg:grid-cols-2 gap-5">
-        {allBlogs.map((blog) => (
-          <BlogCard key={blog.slug} {...blog} />
-        ))}
       </section>
     </div>
   );

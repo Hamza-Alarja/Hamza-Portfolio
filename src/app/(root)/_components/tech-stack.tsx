@@ -2,7 +2,6 @@
 // ...existing code...
 import React, { useState } from "react";
 import { Marquee } from "@/components/magicui/marquee";
-// import Image from "next/image";
 import Image from "next/image";
 
 interface TechItem {
@@ -93,7 +92,7 @@ const TechIcon: React.FC<{ tech: TechItem }> = ({ tech }) => {
   const [src, setSrc] = useState(primary || fallback || placeholder);
 
   return (
-    <img
+    <Image
       src={src}
       alt={`${tech.name} logo`}
       width={55}

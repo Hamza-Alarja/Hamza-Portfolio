@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-import { allBlogs } from "content-collections";
 
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Mail } from "lucide-react";
@@ -23,13 +22,6 @@ export default function Page() {
   useEffect(() => {
     setColor(theme === "dark" ? "#ffffff" : "#000000");
   }, [theme]);
-
-  const latestBlog = allBlogs
-    .sort(
-      (a, b) =>
-        new Date(b.publishedOn).getTime() - new Date(a.publishedOn).getTime()
-    )
-    .slice(0, 3);
 
   return (
     <main>
@@ -158,8 +150,6 @@ export default function Page() {
 
         <ProjectCard />
       </section>
-
-      {/* Recent Blog */}
     </main>
   );
 }

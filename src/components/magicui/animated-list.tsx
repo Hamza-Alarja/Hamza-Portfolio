@@ -34,7 +34,7 @@ export const AnimatedList = React.memo(
     const [index, setIndex] = useState(0);
     const childrenArray = useMemo(
       () => React.Children.toArray(children),
-      [children],
+      [children]
     );
 
     useEffect(() => {
@@ -52,6 +52,11 @@ export const AnimatedList = React.memo(
       return result;
     }, [index, childrenArray]);
 
+    // Debugging: Log childrenArray and itemsToShow
+    console.log("childrenArray:", childrenArray);
+    console.log("itemsToShow:", itemsToShow);
+    console.log("index:", index);
+
     return (
       <div
         className={cn(`flex flex-col items-center gap-4`, className)}
@@ -66,7 +71,7 @@ export const AnimatedList = React.memo(
         </AnimatePresence>
       </div>
     );
-  },
+  }
 );
 
 AnimatedList.displayName = "AnimatedList";
